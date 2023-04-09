@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for('static', filename='style_tw.css')
+    }}>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Template</title>
+  </head>
+  <body>
+    <div class="relative isolate h-screen radial-blue">
+      <header
+        class="fixed min-w-full bg-gradient-to-r from-sky-500 to-violet-600 m-0 h-16"
+      >
+        <div class="w-6/12 mx-auto text-white py-6">
+          <ul class="flex flex-row justify-center items-center text-lg">
+            <li><a href="#">Why KNOWA</a></li>
+            <li><a href="#">Tutors</a></li>
+            <li><a href="#">Plans</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+      <main class="absolute pt-16 flex w-full h-full z-10">
+        <div
+          id="content-div"
+          class="w-3/4 bg-red-500 mx-auto flex justify-center items-center"
+        >
+          hello
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

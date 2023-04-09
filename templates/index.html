@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for('static', filename='style_tw.css')
+    }}>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="/build/css/style.css" /> -->
+    <title>Knowa Home</title>
+  </head>
+  <body>
+    <div class="relative isolate min-h-screen radial-blue">
+      <header
+        class="fixed min-w-full bg-gradient-to-r from-sky-500 to-violet-600 m-0 h-16"
+      >
+        <div class="w-6/12 mx-auto text-white py-6">
+          <ul class="flex flex-row justify-center items-center text-lg">
+            <li><a href="#">Why KNOWA</a></li>
+            <li><a href="#">Tutors</a></li>
+            <li><a href="#">Plans</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+      <!-- <div
+        class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"
+      ></div>
+      <div
+        class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"
+      ></div>
+      <div
+        class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"
+      ></div> -->
+      <div
+        class="mx-auto w-6/12 min-h-screen px-32 py-72 justify-center rounded-lg items-center flex flex-col"
+      >
+        <h1
+          class="text-7xl font-semibold text-gray-50 text-center"
+          
+        >
+          Welcome to Knowa.
+        </h1>
+        <p class="text-gray-100 text-3xl text-center my-5">Kickstart your learning experience with us.</p>
+        <div>
+        <a href="/signin"><button type="button" class="block text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-lg rounded-lg text-sm px-5 py-2.5 text-center w-full mx-auto my-4">Click to get started.</button></a>
+        </div>
+        <!-- <form method="post" class="mt-4">
+          <input
+            id="input-box"
+            class="mt-1 block w-full px-3 py-2 font-thin bg-white border border-slate-300 rounded-md text-lg shadow-md placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none placeholder:text-gray-400"
+            type="text"
+            placeholder="User ID"
+            name="user_id"
+            action="localhost:5000/login"
+            required
+          />
+          <div
+            class="input-buttons flex rounded-lg text-xl mt-4 h-12 shadow-lg"
+          >
+            <input
+              type="submit"
+              id="left-button"
+              value="Enter"
+              class="text-gray-100 w-2/3 bg-blue-500 hover:bg-blue-600 cursor-pointer rounded-l-md text-lg font-base"
+            />
+            <input
+              type="button"
+              id="right-button"
+              value="Sign Up"
+              class="w-1/3 bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-r-md text-lg font-base"
+            />
+          </div>
+        </form> -->
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src={{ url_for('static', filename='src/index.js') }}></script>
+</html>

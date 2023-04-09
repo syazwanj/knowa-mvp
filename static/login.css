@@ -1,0 +1,36 @@
+/* #input-buttons {
+  margin: 8px 0;
+  font-size: 0;
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#left-button,
+#right-button {
+  font-weight: 800;
+  height: 48px;
+}
+
+#left-button {
+  margin: 0;
+  width: 65%;
+  background-color: #3182ce;
+  color: white;
+}
+
+#right-button {
+  margin: 0;
+  margin-left: -4px;
+  width: 35%;
+}
+
+form,
+input {
+  width: 100%;
+  overflow: hidden;
+}
+
+input {
+  margin: 16px 0;
+} */
