@@ -66,6 +66,13 @@ hr {
   padding: 0;
 }
 
+/* registration.html */
+.pw-criteria {
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem /* 20px */;
+  font-weight: 500;
+}
+
 /* signin.html */
 /* #social-buttons button {
   text-align: center;

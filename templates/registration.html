@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for('static', filename='style_tw.css')
+    }}>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="relative isolate h-screen radial-blue">
+      <header
+        class="fixed min-w-full bg-gradient-to-r from-sky-500 to-violet-600 m-0 h-16 z-10"
+      >
+        <div class="w-6/12 mx-auto text-white py-6">
+          <ul class="flex flex-row justify-center items-center text-lg">
+            <li><a href="#">Why KNOWA</a></li>
+            <li><a href="#">Tutors</a></li>
+            <li><a href="#">Plans</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+      <main class="absolute pt-16 flex w-full h-full z-0 bg-gray-200">
+        <div
+          id="content-div"
+          class="w-3/4 mx-auto flex justify-center items-center"
+        >
+          <form method="post" action="#" class="w-1/2 space-y-4 md:space-y-6">
+            <div class="">
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Email</label
+              >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@domain.com"
+                required=""
+              />
+            </div>
+            <div class="">
+              <label
+                for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Password</label
+              >
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Password"
+                required=""
+              />
+              <p class="text-sm font-medium">
+                Password must meet the following criteria:
+                <ul>
+                  <li class="pw-criteria" id="pw-min-char">Must have at least 8 characters.</li>
+                  <li class="pw-criteria" id="pw-lower-upper">Must consist of lowercase and uppercase characters.</li>
+                  <li class="pw-criteria" id="pw-special-number">Must consist of at least one number.</li>
+                </ul>
+              </p>
+            </div>
+            <div class="">
+              <label
+                for="passwordcfm"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                name="passwordcfm"
+                id="passwordcfm"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Password"
+                required=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="w-2/5">
+                <label
+                  for="firstname"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  name="firstname"
+                  id="firstname"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="e.g. John"
+                  required=""
+                />
+              </div>
+              <div class="w-2/5">
+                <label
+                  for="lastname"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="e.g. Appleseed"
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="">
+              <label
+                for="educationlevel"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Current Education Level</label
+              >
+              <select
+                id="countries"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option selected>Choose an option</option>
+                <option value="P6">Primary 6</option>
+              </select>
+              More options coming soon.
+            </div>
+            <button
+            type="button"
+            id="register-button"
+            class="w-full text-black bg-gradient-to-r from-teal-300 to-lime-300 hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          >
+            Register
+          </button>
+          </form>
+        </div>
+      </main>
+    </div>
+    <script type="text/javascript" src={{ url_for('static', filename='src/register.js')}}></script>
+  </body>
+</html>
