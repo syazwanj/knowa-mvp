@@ -1,0 +1,23 @@
+{
+  "folders": [
+	{
+		"path": "../knowa-mvp-react-flask"
+	},
+	{
+		"path": "../react-app-tutorial"
+	},
+	{
+		"path": "../chatgpt-question-generator"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+	"liveServer.settings.multiRootWorkspaceName": "knowa-mvp-html-css",
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter"
+	},
+	"python.formatting.provider": "none"
+  }
+}
