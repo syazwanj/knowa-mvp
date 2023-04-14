@@ -1,24 +1,81 @@
-from flask import Blueprint, request, flash, redirect
+from flask import Blueprint, request, flash, redirect, render_template, url_for
 import pandas as pd
 import os
 import random
-from . import db
+import re
+from . import db, login_manager
+from flask_login import login_user, current_user, logout_user
 from .models import User
+from werkzeug.security import generate_password_hash
 
-auth = Blueprint('auth', __name__)
+auth = Blueprint("auth", __name__)
+email_regex = re.compile(
+    r"(^[\w.!#$%&'*+/=?^_`{|}~-]+" r"@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$)"
+)
 
 
 @auth.route("/login", methods=["POST"])
 def login():
     print("in login method")
-    name = request.form.get('name')
-    user_id = request.form.get('user_id')
+    email = request.form.get("email")
+    password = request.form.get("password")
 
-    if name:
-        user = User.query.filter_by(name=name).first()
-        return redirect('../templates/topics.html')
-    elif user_id:
-        print("in user id")
+    user = User.query.filter_by(email=email).first()
+    if user is not None and user.check_password(password):
+        login_user(user)
+
+        return redirect(url_for("main.topics")), 200
+
+    flash("Invalid email address or password.")
+
+    return "invalid", 400
+
+
+@auth.route("/register", methods=["POST"])
+def register_user():
+    # Retrieve the form inputs and perform input validation
+    valid_email = is_valid_email(request.form.get("email"))
+
+    # Check if email already exists
+    user_check = User.query.filter_by(email=request.form.get("email")).first()
+    print(request.form)
+    print(user_check)
+
+    # Check if passwords match
+    pw_match = request.form.get("password") == request.form.get("passwordcfm")
+
+    # Exit if email or passwords not valid
+    if not valid_email or not pw_match or user_check:
+        message = ""
+        if not valid_email:
+            message += "Email format invalid. "
+        if not pw_match:
+            message += "Passwords don't match. "
+        if user_check:
+            message += "User with matching email already exists. "
+
+        return f"User not created, {message}", 400
+
+    else:  # Insert into DB
+        user = User(
+            email=request.form.get("email"),
+            firstname=request.form.get("firstname"),
+            lastname=request.form.get("lastname"),
+            ed_level=request.form.get("ed_level"),
+        )
+        user.set_password(request.form.get("password"))
+
+        db.session.add(user)
+        db.session.commit()
+
+        return "User successfully created", 201
+
+
+def is_valid_email(email):
+    if email_regex.match(email):
+        return True
+    else:
+        return False
 
 
 # @auth.route("/login", methods=["POST"])

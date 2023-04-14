@@ -1,9 +1,19 @@
-from flask import Flask, request, render_template, Blueprint, send_file, url_for
+from flask import (
+    Flask,
+    request,
+    render_template,
+    Blueprint,
+    send_file,
+    url_for,
+    redirect,
+)
 from flask_cors import CORS, cross_origin
+from flask_login import login_required, current_user, logout_user
 import random
 import os
 import pandas as pd
-from . import db
+from . import db, login_manager
+from .models import User
 
 print(__name__)
 main = Blueprint("main", __name__)
@@ -25,10 +35,14 @@ def demo():
 
 @main.route("/signin")
 def siginin():
+    # Check if logged in
+    if current_user.is_authenticated:
+        return redirect(url_for("main.topics"))
     return render_template("signin.html")
 
 
 @main.route("/topics")
+@login_required
 def topics():
     return render_template("topics.html")
 
@@ -38,8 +52,10 @@ def questions():
     return render_template("questions.html")
 
 
-@main.route("/register")
+@main.route("/register", methods=["GET"])
 def register():
+    if current_user.is_authenticated:
+        logout_user()
     return render_template("registration.html")
 
 
@@ -130,6 +146,12 @@ def register_request_handler(name, user_data_file):
     user_data_file.to_csv("user_data.csv", index=None)
 
     return True, user_info_dict
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    u = User.query.filter_by(id=user_id).first()
+    return u
 
 
 if __name__ == "__main__":

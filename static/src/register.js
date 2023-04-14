@@ -39,14 +39,19 @@ function pwValidator() {
 
   if (lengthValid) {
     document.querySelector("#pw-min-char").classList.add("text-green-500");
+    document.querySelector("#pw-min-char").classList.remove("text-red-500");
   }
   if (numValid) {
     document
       .querySelector("#pw-special-number")
       .classList.add("text-green-500");
+    document
+      .querySelector("#pw-special-number")
+      .classList.remove("text-red-500");
   }
   if (lowUppValid) {
     document.querySelector("#pw-lower-upper").classList.add("text-green-500");
+    document.querySelector("#pw-lower-upper").classList.remove("text-red-500");
   }
   return lengthValid && numValid && lowUppValid;
 }
@@ -87,7 +92,7 @@ function sendRegister() {
     console.log("pwCfm:" + pwCfmValidator());
     alert("One or more fields invalid.");
   } else {
-    alert("all good");
+    document.querySelector("#registration-form").submit();
   }
 }
 
