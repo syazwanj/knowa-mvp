@@ -6,6 +6,7 @@ from flask import (
     send_file,
     url_for,
     redirect,
+    session,
 )
 from flask_cors import CORS, cross_origin
 from flask_login import login_required, current_user, logout_user
@@ -44,12 +45,37 @@ def siginin():
 @main.route("/topics")
 @login_required
 def topics():
-    return render_template("topics.html")
+    # Init session
+    session["current_question"] = 0
+    session["answers"] = {}
+    return render_template("topics.html", firstname=current_user.firstname)
+
+
+questions_dict = [
+    {
+        "question": "What is the capital of France?",
+        "answers": ["Paris", "Berlin", "London", "Madrid"],
+        "correct_answer": "Paris",
+    },
+    {
+        "question": "What is the tallest mountain in the world?",
+        "answers": ["Mount Everest", "K2", "Kilimanjaro", "Denali"],
+        "correct_answer": "Mount Everest",
+    },
+    # Add more questions here
+]
 
 
 @main.route("/questions")
 def questions():
-    return render_template("questions.html")
+    current_question = session["current_question"]
+    question = questions_dict[current_question]
+    answers = question["answers"]
+    correct_ans = question["correct_answer"]
+
+    return render_template(
+        "questions.html", question=question["question"], answers=answers
+    )
 
 
 @main.route("/register", methods=["GET"])

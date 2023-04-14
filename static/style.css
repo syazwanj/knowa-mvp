@@ -6,7 +6,7 @@
 }
 
 html {
-  min-width: 800px;
+  /* min-width: 800px; */
   margin: 0;
   min-height: 100vh;
 }
@@ -73,6 +73,11 @@ hr {
   font-weight: 500;
 }
 
+/* questions.html */
+.question-card {
+  padding: 1.5rem 3rem;
+  @apply rounded-lg bg-gray-50 border-gray-400 border-2 hover:bg-gray-200 cursor-pointer;
+}
 /* signin.html */
 /* #social-buttons button {
   text-align: center;
